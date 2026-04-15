@@ -69,7 +69,9 @@ public class Main
         //original: String secondPhoneNumber = cellphone2.getPhoneNumber();
         //credit to Sara for making this less complicated
         //cellphone1.dialPhoneNumber(cellphone2.getPhoneNumber());
-        everybodyDialsEveryoneElse();
+
+        //everybodyDialsEveryoneElse();
+        everybodyDialsEveryoneElse2();
 
     }
 
@@ -119,6 +121,25 @@ public class Main
                 if (!firstNumber.getPhoneNumber().equals(secondNumber))
                 {
                     firstNumber.dialPhoneNumber(secondNumber);
+                }
+            }
+        }
+    }
+    public static void everybodyDialsEveryoneElse2()
+    {
+        //this also works? didn't think about it before but I don't technically need 2 arrays
+        //just requires a lot of methods within methods
+        cellphones[0] = cellphone1;
+        cellphones[1] = cellphone2;
+        cellphones[2] = cellphone3;
+
+        for (CellPhone firstNumber : cellphones)
+        {
+            for (CellPhone secondNumber : cellphones)
+            {
+                if (!firstNumber.getPhoneNumber().equals(secondNumber.getPhoneNumber()))
+                {
+                    firstNumber.dialPhoneNumber(secondNumber.getPhoneNumber());
                 }
             }
         }
