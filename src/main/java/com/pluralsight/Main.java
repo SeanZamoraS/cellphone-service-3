@@ -8,6 +8,13 @@ public class Main
 
     static CellPhone cellphone1 = new CellPhone();
     static CellPhone cellphone2 = new CellPhone();
+    //instantiating for exercise 3
+    static CellPhone cellphone3 = new CellPhone(
+            11223344, "Mint", "Google Pixel 10",
+            "425-987-6543", "Mr. E");
+
+    static String[] cellphoneNumbers = new String[3];
+    static CellPhone[] cellphones = new CellPhone[3];
 
     public static void main(String[] args)
     {
@@ -57,9 +64,12 @@ public class Main
 
         display(cellphone1);
         display(cellphone2);
+        display(cellphone3);
 
-        String secondPhoneNumber = cellphone2.getPhoneNumber();
-        cellphone1.dialPhoneNumber(secondPhoneNumber);
+        //original: String secondPhoneNumber = cellphone2.getPhoneNumber();
+        //credit to Sara for making this less complicated
+        //cellphone1.dialPhoneNumber(cellphone2.getPhoneNumber());
+        everybodyDialsEveryoneElse();
 
     }
 
@@ -90,6 +100,27 @@ public class Main
             }
 
         }
-    }
 
+    }
+    public static void everybodyDialsEveryoneElse()
+    {
+        cellphoneNumbers[0] = cellphone1.getPhoneNumber();
+        cellphoneNumbers[1] = cellphone2.getPhoneNumber();
+        cellphoneNumbers[2] = cellphone3.getPhoneNumber();
+
+        cellphones[0] = cellphone1;
+        cellphones[1] = cellphone2;
+        cellphones[2] = cellphone3;
+
+        for (CellPhone firstNumber : cellphones)
+        {
+            for (String secondNumber : cellphoneNumbers)
+            {
+                if (!firstNumber.getPhoneNumber().equals(secondNumber))
+                {
+                    firstNumber.dialPhoneNumber(secondNumber);
+                }
+            }
+        }
+    }
 }

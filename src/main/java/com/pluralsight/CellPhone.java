@@ -16,6 +16,16 @@ public class CellPhone
         phoneNumber = "000-000-0000";
         owner = " ";
     }
+
+    public CellPhone(int serialNumber, String model, String carrier, String phoneNumber, String owner)
+    {
+        this.serialNumber = serialNumber;
+        this.model = model;
+        this.carrier = carrier;
+        this.phoneNumber = phoneNumber;
+        this.owner = owner;
+    }
+
     //Setters:
     public void setSerialNumber(int serialNumber)
     {
